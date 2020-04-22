@@ -27,8 +27,17 @@
     <module>register-center-eureka</module>
     <!--Zuul网关-->
     <module>gateway-zuul</module>
+    <!--分布式服务追踪-->
+    <module>sleuth</module>
     <!--组件start-->
 
+
+    <!--服务Start-->
+    <!--基础服务提供者-->
+    <module>server-base-provider</module>
+    <!--基础服务调用者-->
+    <module>server-base-consumer</module>
+    <!--服务End-->
 
   </modules>
 
