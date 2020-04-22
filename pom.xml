@@ -25,7 +25,10 @@
     <!--组件start-->
     <!--Eureka注册中心-->
     <module>register-center-eureka</module>
+    <!--Zuul网关-->
+    <module>gateway-zuul</module>
     <!--组件start-->
+
 
   </modules>
 
