@@ -19,19 +19,19 @@ public class BaseService {
   private RestTemplate restTemplate;
 
 
-//  @HystrixCommand(fallbackMethod = "baseFallBack")
+  @HystrixCommand(fallbackMethod = "baseFallBack")
   public String callBaseService() {
-//    try {
-//      //触发熔断机制
-//      Thread.sleep(5000L);
-//    } catch (InterruptedException e) {
-//      log.error("",e);
-//    }
+    try {
+      //触发熔断机制
+      Thread.sleep(5000L);
+    } catch (InterruptedException e) {
+      log.error("",e);
+    }
     return restTemplate.getForEntity("http://server-base-provider/base/baseService", String.class)
         .getBody();
   }
 
-//  private String baseFallBack() {
-//    return "error";
-//  }
+  private String baseFallBack() {
+    return "error";
+  }
 }

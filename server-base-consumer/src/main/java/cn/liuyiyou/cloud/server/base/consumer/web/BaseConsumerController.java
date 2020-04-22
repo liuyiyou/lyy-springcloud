@@ -19,6 +19,10 @@ public class BaseConsumerController {
   private BaseService baseService;
 
 
+  /**
+   * 调用其他微服务
+   * @return
+   */
   @GetMapping("/callBaseService")
   public String callBaseService() {
     return baseService.callBaseService();

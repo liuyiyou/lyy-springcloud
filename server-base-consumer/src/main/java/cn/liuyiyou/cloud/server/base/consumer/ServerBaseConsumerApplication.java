@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @RestController
-//@EnableCircuitBreaker
+@EnableCircuitBreaker
 public class ServerBaseConsumerApplication {
 
   public static void main(String[] args) {
