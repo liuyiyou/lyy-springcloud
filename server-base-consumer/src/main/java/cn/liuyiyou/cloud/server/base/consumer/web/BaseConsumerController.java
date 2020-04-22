@@ -19,8 +19,8 @@ public class BaseConsumerController {
   private BaseService baseService;
 
 
-  @GetMapping("/ribbon-consumer")
-  public String helloRibbon() {
+  @GetMapping("/callBaseService")
+  public String callBaseService() {
     return baseService.callBaseService();
   }
 }
