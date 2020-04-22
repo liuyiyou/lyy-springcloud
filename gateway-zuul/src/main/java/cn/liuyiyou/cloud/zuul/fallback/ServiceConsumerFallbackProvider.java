@@ -1,5 +1,7 @@
 package cn.liuyiyou.cloud.zuul.fallback;
 
+import cn.hutool.json.JSONObject;
+import cn.hutool.json.JSONUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.netflix.zuul.context.RequestContext;
 import java.io.ByteArrayInputStream;
@@ -64,7 +66,9 @@ public class ServiceConsumerFallbackProvider implements FallbackProvider {
         }
         RequestContext currentContext = RequestContext.getCurrentContext();
         log.info(currentContext.getResponseBody());
-        return new ByteArrayInputStream(new String("服务器错误".getBytes(), StandardCharsets.UTF_8).getBytes());
+        JSONObject jsonObject =  JSONUtil.createObj();
+        jsonObject.putOnce("500","服务不可用 ");
+        return new ByteArrayInputStream(jsonObject.toString().getBytes());
       }
 
       @Override

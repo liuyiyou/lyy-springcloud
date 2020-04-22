@@ -10,10 +10,10 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>cn.liuyiyou.springcloud</groupId>
-  <artifactId>server-base-consumer</artifactId>
+  <artifactId>server-user-provider</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>server-base-consumer</name>
-  <description>基础服务调用方</description>
+  <name>server-user-provider</name>
+  <description>用户服务</description>
 
   <properties>
     <java.version>1.8</java.version>
@@ -40,10 +40,6 @@
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.cloud</groupId>
@@ -78,6 +74,47 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
+    <!--<dependency>-->
+      <!--<groupId>org.springframework.cloud</groupId>-->
+      <!--<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+      <!--<groupId>org.springframework.cloud</groupId>-->
+      <!--<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+      <!--<groupId>org.springframework.cloud</groupId>-->
+      <!--<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+      <!--<groupId>org.springframework.cloud</groupId>-->
+      <!--<artifactId>spring-cloud-starter-openfeign</artifactId>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+      <!--<groupId>org.springframework.cloud</groupId>-->
+      <!--<artifactId>spring-cloud-starter-sleuth</artifactId>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+      <!--<groupId>org.springframework.cloud</groupId>-->
+      <!--<artifactId>spring-cloud-starter-zipkin</artifactId>-->
+    <!--</dependency>-->
+
+    <!--<dependency>-->
+      <!--<groupId>org.projectlombok</groupId>-->
+      <!--<artifactId>lombok</artifactId>-->
+      <!--<optional>true</optional>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+      <!--<groupId>org.springframework.boot</groupId>-->
+      <!--<artifactId>spring-boot-starter-test</artifactId>-->
+      <!--<scope>test</scope>-->
+      <!--<exclusions>-->
+        <!--<exclusion>-->
+          <!--<groupId>org.junit.vintage</groupId>-->
+          <!--<artifactId>junit-vintage-engine</artifactId>-->
+        <!--</exclusion>-->
+      <!--</exclusions>-->
+    <!--</dependency>-->
   </dependencies>
 
   <dependencyManagement>
