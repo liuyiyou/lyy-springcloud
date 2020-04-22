@@ -6,8 +6,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
+@RestController
 public class ServerBaseProviderApplication {
 
   public static void main(String[] args) {
@@ -19,7 +21,9 @@ public class ServerBaseProviderApplication {
 
   @GetMapping("/")
   public List<String> home() {
-    return discoveryClient.getServices();
+    List<String> services = discoveryClient.getServices();
+    services.add("current is server-base-provider");
+    return services;
   }
 
 }
