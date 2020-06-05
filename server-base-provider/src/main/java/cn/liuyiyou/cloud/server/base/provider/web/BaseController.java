@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/base")
 public class BaseController {
 
+  //http://localhost:8081/gateway/api-base/base/baseService
   @GetMapping("/baseService")
   public String baseService() {
     return "cn.liuyiyou.cloud.server.base.provider.web.BaseController#baseService()";

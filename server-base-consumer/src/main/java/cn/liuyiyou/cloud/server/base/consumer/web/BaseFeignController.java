@@ -20,9 +20,11 @@ public class BaseFeignController extends AbstractBaseController{
   @Autowired
   private FeighServiceClient feighServiceClient;
 
+  //http://localhost:8081/gateway/api/callBaseServiceByFeign
   @HystrixCommand(fallbackMethod = "baseFallBack")
   @GetMapping("/callBaseServiceByFeign")
   public String callBaseService() {
+    log.info("http://localhost:8081/gateway/api/callBaseServiceByFeign");
     return feighServiceClient.feighService("abc");
   }
 

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class FeignServiceController {
 
 
+  //http://localhost:8081/gateway/api-base/feigh-service/instance/SERVER-BASE-CONSUMER
   @RequestMapping(value = "/instance/{serviceId}",method = RequestMethod.GET)
   public String feighService(@PathVariable("serviceId") String serviceId) {
     return serviceId;

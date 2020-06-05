@@ -24,7 +24,7 @@ public class BaseConsumerController  extends AbstractBaseController{
   private DiscoveryClient discoveryClient;
 
   /**
-   * 调用其他微服务
+   * 调用其他微服务  http://localhost:8081/gateway/api/callBaseService  因为使用了自定义负载均衡，该方法不可用
    */
   @GetMapping("/callBaseService")
   public String callBaseService() {
