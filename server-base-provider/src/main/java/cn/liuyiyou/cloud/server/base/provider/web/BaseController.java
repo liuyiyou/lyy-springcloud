@@ -1,5 +1,7 @@
 package cn.liuyiyou.cloud.server.base.provider.web;
 
+import cn.liuyiyou.cloud.server.base.provider.entity.User;
+import cn.liuyiyou.cloud.server.base.provider.response.ResultEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,9 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/base")
 public class BaseController {
 
-  //http://localhost:8081/gateway/api-base/base/baseService
-  @GetMapping("/baseService")
-  public String baseService() {
-    return "cn.liuyiyou.cloud.server.base.provider.web.BaseController#baseService()";
-  }
+    //http://localhost:8081/gateway/api-base/base/baseService
+    @GetMapping("/baseService")
+    public String baseService() {
+        return "cn.liuyiyou.cloud.server.base.provider.web.BaseController#baseService()";
+    }
+
+
 }

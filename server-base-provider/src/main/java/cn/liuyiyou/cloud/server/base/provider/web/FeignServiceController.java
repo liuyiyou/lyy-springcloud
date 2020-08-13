@@ -1,5 +1,8 @@
 package cn.liuyiyou.cloud.server.base.provider.web;
 
+import cn.liuyiyou.cloud.server.base.provider.entity.User;
+import cn.liuyiyou.cloud.server.base.provider.response.ResultEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,9 +20,25 @@ import org.springframework.web.bind.annotation.RestController;
 public class FeignServiceController {
 
 
-  //http://localhost:8081/gateway/api-base/feigh-service/instance/SERVER-BASE-CONSUMER
-  @RequestMapping(value = "/instance/{serviceId}",method = RequestMethod.GET)
-  public String feighService(@PathVariable("serviceId") String serviceId) {
-    return serviceId;
-  }
+    //http://localhost:8081/gateway/api-base/feigh-service/instance/SERVER-BASE-CONSUMER
+    @RequestMapping(value = "/instance/{serviceId}", method = RequestMethod.GET)
+    public String feighService(@PathVariable("serviceId") String serviceId) {
+        return serviceId;
+    }
+
+
+    @GetMapping("/getUser")
+    public User getUser() {
+        User user = new User();
+        user.setId(1);
+        user.setName("lyy");
+        return user;
+    }
+
+    @GetMapping("/getUserWithWrap")
+    public ResultEntity<String> getUserWithWrap() {
+        System.out.println("xxxx");
+        ResultEntity<String> userResultEntity = new ResultEntity<>(200,"hello");
+        return userResultEntity;
+    }
 }

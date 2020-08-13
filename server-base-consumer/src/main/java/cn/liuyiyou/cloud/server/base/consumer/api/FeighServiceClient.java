@@ -1,6 +1,9 @@
 package cn.liuyiyou.cloud.server.base.consumer.api;
 
+import cn.liuyiyou.cloud.server.base.consumer.response.ResultEntity;
+import cn.liuyiyou.cloud.server.base.consumer.response.dto.User;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,8 +16,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 // server-base-provider 对应的服务名称，表示需要调用从server-base-provider的接口
 @FeignClient("server-base-provider")
 @RequestMapping("/feigh-service")
+@Component
 public interface FeighServiceClient {
 
-  @RequestMapping(value = "/instance/{serviceId}",method = RequestMethod.GET)
-  String feighService(@PathVariable("serviceId") String serviceId);
+    @RequestMapping(value = "/instance/{serviceId}", method = RequestMethod.GET)
+    String feighService(@PathVariable("serviceId") String serviceId);
+
+    @RequestMapping(value = "/getUserWithWrap", method = RequestMethod.GET)
+    ResultEntity<String> getUserWithWrap();
+
+    @RequestMapping(value = "/getUser", method = RequestMethod.GET)
+    User getUser();
 }
