@@ -62,6 +62,52 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>1.9.1</version>
+        <executions>
+          <execution>
+            <id>timestamp-property</id>
+            <goals>
+              <goal>timestamp-property</goal>
+            </goals>
+            <configuration>
+              <name>current.time</name>
+              <pattern>yyyyMMdd-HHmmss</pattern>
+              <timeZone>GMT+8</timeZone>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>jib-maven-plugin</artifactId>
+        <version>2.3.0</version>
+        <configuration>
+          <allowInsecureRegistries>true</allowInsecureRegistries>
+          <from>
+            <image>ha.ibaboss.com/images/openjdk:8-jre-slim</image>
+          </from>
+          <to>
+            <!--镜像名称-->
+            <image>register-center-eureka</image>
+            <tags>
+              <tag>latest</tag>
+            </tags>
+          </to>
+          <container>
+            <environment>
+              <SPRING_OUTPUT_ANSI_ENABLED>ALWAYS</SPRING_OUTPUT_ANSI_ENABLED>
+              <JHIPSTER_SLEEP>0</JHIPSTER_SLEEP>
+            </environment>
+            <creationTime>USE_CURRENT_TIMESTAMP</creationTime>
+            <mainClass>cn.liuyiyou.cloud.eureka.RegisterCenterEurekaApplication</mainClass>
+          </container>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 

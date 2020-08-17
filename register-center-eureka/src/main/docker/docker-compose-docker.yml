@@ -1,0 +1,13 @@
+version: '2'
+services:
+  register-center-eureka:
+    container_name: register-center-eureka
+    image: register-center-eureka:latest
+    restart: always
+    volumes:
+    - ./logs:/logs/
+    environment:
+    - TZ=Asia/Shanghai
+    - SPRING_PROFILES_ACTIVE=docker
+    ports:
+    - 8761:8761
