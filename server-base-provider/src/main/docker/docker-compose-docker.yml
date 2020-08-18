@@ -1,0 +1,14 @@
+version: '2'
+services:
+  server-base-provider:
+    container_name: server-base-provider
+    image: server-base-provider:latest
+    restart: always
+    volumes:
+    - ./logs:/logs/
+    environment:
+    - TZ=Asia/Shanghai
+    - SPRING_PROFILES_ACTIVE=docker
+    network_mode: "host"
+    ports:
+    - 9001:9001

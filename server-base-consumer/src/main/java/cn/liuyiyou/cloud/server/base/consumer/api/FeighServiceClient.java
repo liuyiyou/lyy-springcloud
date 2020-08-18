@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @version: V1.0
  */
 // server-base-provider 对应的服务名称，表示需要调用从server-base-provider的接口
-@FeignClient("server-base-provider")
+//@FeignClient(value = "server-base-provider",url = "http://192.168.36.107:9001")
+@FeignClient(value = "server-base-provider")
+
 @RequestMapping("/feigh-service")
 @Component
 public interface FeighServiceClient {

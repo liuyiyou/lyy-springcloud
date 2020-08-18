@@ -11,3 +11,5 @@ services:
     - SPRING_PROFILES_ACTIVE=docker
     ports:
     - 8761:8761
+#    privileged: true
+#    network_mode: "host"

@@ -1,0 +1,14 @@
+version: '2'
+services:
+  server-base-consumer:
+    container_name: server-base-consumer
+    image: server-base-consumer:latest
+    restart: always
+    volumes:
+    - ./logs:/logs/
+    environment:
+    - TZ=Asia/Shanghai
+    - SPRING_PROFILES_ACTIVE=docker
+    network_mode: "host"
+    ports:
+    - 9401:9401
