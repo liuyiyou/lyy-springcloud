@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: register-center-k8s
+#  cloud:
+#    kubernetes:
+#      config:
+#        name: default-name
+#        namespace: default-namespace
+#        sources:
+#        # Spring Cloud Kubernetes looks up a ConfigMap named c1 in namespace default-namespace
+#        - name: c1
+#        # Spring Cloud Kubernetes looks up a ConfigMap named default-name in whatever namespace n2
+#        - namespace: n2
+#        # Spring Cloud Kubernetes looks up a ConfigMap named c3 in namespace n3
+#        - namespace: n3
+#          name: c3

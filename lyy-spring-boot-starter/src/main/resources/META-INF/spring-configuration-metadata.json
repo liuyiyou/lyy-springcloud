@@ -1,0 +1,76 @@
+{
+  "groups": [
+    {
+      "name": "next",
+      "type": "com.ibaboss.next.properties.NextProperties",
+      "sourceType": "com.ibaboss.next.properties.NextProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "next.name",
+      "type": "java.lang.String",
+      "sourceType": "com.ibaboss.next.properties.NextProperties",
+      "description": "洋老板",
+      "defaultValue": "洋老板中台"
+    },
+    {
+      "name": "next.pop-window",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.ibaboss.next.properties.NextProperties",
+      "description": "是否弹窗",
+      "defaultValue": true
+    }
+  ],
+  "groups": [
+    {
+      "name": "next.swagger",
+      "type": "com.ibaboss.next.properties.SwaggerProperties",
+      "sourceType": "com.ibaboss.next.properties.SwaggerProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "next.swagger.basePackage",
+      "type": "java.lang.String",
+      "sourceType": "com.ibaboss.next.properties.SwaggerProperties",
+      "description": "扫描包"
+    },
+    {
+      "name": "next.swagger.title",
+      "type": "java.lang.String",
+      "sourceType": "com.ibaboss.next.properties.SwaggerProperties",
+      "description": "名字"
+    },
+    {
+      "name": "next.swagger.description",
+      "type": "java.lang.String",
+      "sourceType": "com.ibaboss.next.properties.SwaggerProperties",
+      "description": "描述"
+    },
+    {
+      "name": "next.swagger.version",
+      "type": "java.lang.String",
+      "sourceType": "com.ibaboss.next.properties.SwaggerProperties",
+      "description": "版本"
+    },
+    {
+      "name": "next.swagger.author",
+      "type": "java.lang.String",
+      "sourceType": "com.ibaboss.next.properties.SwaggerProperties",
+      "description": "作者"
+    },
+    {
+      "name": "next.swagger.url",
+      "type": "java.lang.String",
+      "sourceType": "com.ibaboss.next.properties.SwaggerProperties",
+      "description": "访问URL"
+    },
+    {
+      "name": "next.swagger.email",
+      "type": "java.lang.String",
+      "sourceType": "com.ibaboss.next.properties.SwaggerProperties",
+      "description": "作者Email"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
-package cn.liuyiyou.cloud.server.base.consumer.config;
+package cn.liuyiyou.starter.autoconfigure.feign;
 
-import cn.liuyiyou.cloud.server.base.consumer.feign.FeignBasicAuthRequestInterceptor;
 import feign.Logger.Level;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cloud.openfeign.FeignClientsConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,16 +14,14 @@ import org.springframework.context.annotation.Import;
  */
 @Configuration
 @Import(FeignClientsConfiguration.class)
-public class FeignConfiguration {
-
-    @Bean
-    public FeignBasicAuthRequestInterceptor basicAuthRequestInterceptor() {
-        return new FeignBasicAuthRequestInterceptor();
-    }
+@ConditionalOnProperty(prefix = "lyy.config.feign", name = "enable",
+    havingValue = "true", matchIfMissing = true)
+public class FeignAutoConfiguration {
 
     @Bean
     Level logLevel() {
         return Level.FULL;
     }
+
 
 }
