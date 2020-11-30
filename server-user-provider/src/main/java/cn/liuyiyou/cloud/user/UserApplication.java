@@ -1,4 +1,4 @@
-package cn.liuyiyou.springcloud.server.user.provider;
+package cn.liuyiyou.cloud.user;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-public class ServerUserProviderApplication {
+public class UserApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(ServerUserProviderApplication.class, args);
+    SpringApplication.run(UserApplication.class, args);
   }
 
   @Autowired
