@@ -20,15 +20,10 @@ public class Result<T> implements Serializable {
         this.code = code;
     }
 
-    public static <T> Result<T> success(String msg) {
-        Result<T> result = new Result<>();
-        result.setMsg(msg);
-        result.setCode(200);
-        return result;
-    }
+
 
     public static <T> Result<T> alert(final String msg) {
-        Result<T> result = new Result<>();
+        Result<T> result = new Result<T>();
         result.setMsg(msg);
         result.setCode(-1);
         return result;

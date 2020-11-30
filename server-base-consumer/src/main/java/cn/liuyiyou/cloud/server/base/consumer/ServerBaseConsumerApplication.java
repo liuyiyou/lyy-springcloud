@@ -1,6 +1,5 @@
 package cn.liuyiyou.cloud.server.base.consumer;
 
-import cn.liuyiyou.starter.log.Log;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
@@ -23,7 +22,6 @@ public class ServerBaseConsumerApplication {
     }
 
 
-    @Log
     @GetMapping
     public String home() {
         return "ServerBaseConsumer";

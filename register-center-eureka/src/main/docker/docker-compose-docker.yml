@@ -6,10 +6,12 @@ services:
     restart: always
     volumes:
     - ./logs:/logs/
+    - /extend/apache-skywalking-apm-bin/agent:/mnt/
     environment:
     - TZ=Asia/Shanghai
     - SPRING_PROFILES_ACTIVE=docker
     - JAVA_OPTS=-javaagent:D:\Soft\apache-skywalking-apm-8.2.0\apache-skywalking-apm-bin\agent\skywalking-agent.jar -Dskywalking.agent.service_name=register-center-eureka
     ports:
-    - 8761
-    network_mode: "host"
+    - 8761:8761
+#    privileged: true
+#    network_mode: "host"

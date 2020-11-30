@@ -29,4 +29,7 @@ public interface FeighServiceClient {
 
     @RequestMapping(value = "/getUser", method = RequestMethod.GET)
     User getUser();
+
+    @RequestMapping(value = "/getLongReq", method = RequestMethod.GET)
+    User getLongReq();
 }

@@ -22,7 +22,9 @@ public class FeignServiceController {
 
     //http://localhost:8081/gateway/api-base/feigh-service/instance/SERVER-BASE-CONSUMER
     @RequestMapping(value = "/instance/{serviceId}", method = RequestMethod.GET)
-    public String feighService(@PathVariable("serviceId") String serviceId) {
+    public String feighService(@PathVariable("serviceId") String serviceId) throws InterruptedException {
+        //测试feign时间
+        Thread.sleep(5000L);
         return serviceId;
     }
 
@@ -35,10 +37,19 @@ public class FeignServiceController {
         return user;
     }
 
+    @GetMapping("/getLongReq")
+    public User getLongReq() throws InterruptedException {
+        Thread.sleep(5000L);
+        User user = new User();
+        user.setId(1);
+        user.setName("lyy");
+        return user;
+    }
+
     @GetMapping("/getUserWithWrap")
     public ResultEntity<String> getUserWithWrap() {
         System.out.println("xxxx");
-        ResultEntity<String> userResultEntity = new ResultEntity<>(200,"hello");
+        ResultEntity<String> userResultEntity = new ResultEntity<>(200, "hello");
         return userResultEntity;
     }
 }
