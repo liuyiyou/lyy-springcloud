@@ -8,6 +8,8 @@ spring:
     time-zone: GMT+8
   profiles:
     active: dev
+  main:
+    allow-bean-definition-overriding: true
 eureka:
   instance:
     instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@
@@ -41,4 +43,5 @@ ribbon:
 lyy:
   config:
     feign: false
-
+server:
+  port: 9000

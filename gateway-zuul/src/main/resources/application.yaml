@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: gateway-zuul
+  profiles:
+    active: dev
+zuul:
+  routes:
+    cloud-app:
+      path: /app/**
+    server-base-provider:
+      path: /api-base/**
+    server-user-provider:
+      path: /api-user/**
+    consumer-base-provider:
+      path: /api/**
+  # 强制转码
+  force-original-query-string-encoding: true
+  prefix: /gateway
+  #开启调试，在请求header中看到调试内容
+  include-debug-header: true
+  # 限流
+  ratelimit:
+    enabled: true
+    # 敏感信息
+  sensitive-headers:
+server:
+  port: 8081
