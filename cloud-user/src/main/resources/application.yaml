@@ -1,0 +1,44 @@
+
+spring:
+  application:
+    name: cloud-user
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    locale: zh_CN
+    time-zone: GMT+8
+  profiles:
+    active: dev
+  main:
+    allow-bean-definition-overriding: true
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@
+    prefer-ip-address: true
+    home-page-url-path: ${server.servlet.context-path}
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
+      isolation:
+        thread:
+          #目前有两个容器实例，单个请求超时5s,+重试>10s，超15s则熔断
+          timeoutInMilliseconds: 15000
+
+ribbon:
+  #ribbon请求连接的超时时间- 限制3秒内必须请求到服务，并不限制服务处理的返回时间
+  connectTimeout: 3000
+  #请求处理的超时时间 下级服务响应最大时间,超出时间消费方（路由也是消费方）返回timeout,超时时间不可大于断路器的超时时间
+  readTimeout: 5000
+
+server:
+  port: 9100

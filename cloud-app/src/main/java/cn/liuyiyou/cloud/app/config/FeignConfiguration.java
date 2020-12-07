@@ -1,6 +1,6 @@
 package cn.liuyiyou.cloud.app.config;
 
-import cn.liuyiyou.cloud.app.feign.FeignBasicAuthRequestInterceptor;
+import cn.liuyiyou.cloud.app.config.feign.FeignBasicAuthRequestInterceptor;
 import feign.Logger.Level;
 import org.springframework.cloud.openfeign.FeignClientsConfiguration;
 import org.springframework.context.annotation.Bean;

@@ -12,6 +12,8 @@ zuul:
   routes:
     cloud-app:
       path: /app/**
+    cloud-user:
+      path: /user/**
     server-base-provider:
       path: /api-base/**
     server-user-provider:

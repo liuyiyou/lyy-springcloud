@@ -1,4 +1,4 @@
-package cn.liuyiyou.cloud.app.feign;
+package cn.liuyiyou.cloud.app.config.feign;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
