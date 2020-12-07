@@ -3,6 +3,11 @@ spring:
     name: gateway-zuul
   profiles:
     active: dev
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@
+    prefer-ip-address: true
+    home-page-url-path: ${server.servlet.context-path}
 zuul:
   routes:
     cloud-app:
@@ -19,9 +24,9 @@ zuul:
   #开启调试，在请求header中看到调试内容
   include-debug-header: true
   # 限流
-  ratelimit:
-    enabled: true
+#  ratelimit:
+#    enabled: true
     # 敏感信息
-  sensitive-headers:
+#  sensitive-headers:
 server:
   port: 8081
