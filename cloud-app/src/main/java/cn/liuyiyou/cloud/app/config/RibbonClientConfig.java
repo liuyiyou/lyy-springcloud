@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
  * @date: 2020/4/26
  * @version: V1.0
  */
-@RibbonClient(name = "server-base-consumer",configuration = LoadBalacneConfig.class)
+@RibbonClient(name = "server-base-consumer")//,configuration = LoadBalacneConfig.class)
 public class RibbonClientConfig {
 
 

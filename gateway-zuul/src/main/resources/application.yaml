@@ -8,6 +8,7 @@ eureka:
     instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@
     prefer-ip-address: true
     home-page-url-path: ${server.servlet.context-path}
+# 路径匹配规则
 zuul:
   routes:
     cloud-app:
