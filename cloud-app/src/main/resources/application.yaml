@@ -15,6 +15,7 @@ eureka:
     instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@
     prefer-ip-address: true
     home-page-url-path: ${server.servlet.context-path}
+
 feign:
   httpclient:
     enabled: false
@@ -24,12 +25,21 @@ feign:
     enabled: true
 
 hystrix:
+  threadpool:
+    default:
+      # 解决办法是设置feign的核心线程池
+      coreSize: 100
   command:
     default:
       execution:
+        circuitBreaker:
+          requestVolumeThreshold: 500
         timeout:
           enabled: false
       isolation:
+        semaphore:
+          # #设置回退的最大线程数
+          maxConcurrentRequests: 50
         thread:
           #目前有两个容器实例，单个请求超时5s,+重试>10s，超15s则熔断
           timeoutInMilliseconds: 15000

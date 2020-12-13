@@ -9,9 +9,9 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <groupId>cn.liuyiyou.springcloud</groupId>
-  <artifactId>register-center-eureka</artifactId>
+  <artifactId>eureka</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>register-center-eureka</name>
+  <name>eureka</name>
   <description>Eureka注册中心</description>
 
   <properties>
@@ -24,6 +24,4 @@
       <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
     </dependency>
   </dependencies>
-
-
 </project>
