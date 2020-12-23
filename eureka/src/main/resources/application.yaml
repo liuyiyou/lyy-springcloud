@@ -1,0 +1,30 @@
+
+spring:
+  profiles:
+    active: docker
+  application:
+    name: eureka
+    #Eureka服务器不发送span到Zipkin，避免一些心跳啥的信息
+  zipkin:
+    enabled: false
+  security:
+    user:
+      name: admin
+      password: admin
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@
+    home-page-url-path: ${server.servlet.context-path}
+    hostname: localhost
+  client:
+    #不需要注册到服务端
+    register-with-eureka: false
+    #不需要同步已注册的服务注册列表数据到本地
+    fetch-registry: false
+server:
+  port: 8761
+logging:
+  level:
+    com.netflix.eureka: OFF
+    com.netflix.discovery: OFF

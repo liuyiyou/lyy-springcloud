@@ -15,7 +15,6 @@ eureka:
     instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@
     prefer-ip-address: true
     home-page-url-path: ${server.servlet.context-path}
-
 feign:
   httpclient:
     enabled: false
@@ -46,12 +45,14 @@ hystrix:
 
 ribbon:
   #ribbon请求连接的超时时间- 限制3秒内必须请求到服务，并不限制服务处理的返回时间
-  connectTimeout: 3000
+  ConnectTimeout: 3000
   #请求处理的超时时间 下级服务响应最大时间,超出时间消费方（路由也是消费方）返回timeout,超时时间不可大于断路器的超时时间
-  readTimeout: 5000
+  ReadTimeout: 5000
 
 lyy:
   config:
     feign: false
 server:
   port: 9000
+  servlet:
+    context-path:
