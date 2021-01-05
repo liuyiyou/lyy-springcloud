@@ -1,5 +1,15 @@
-
 spring:
+  jpa:
+    properties:
+      hibernate:
+        database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+        jdbc:
+          time_zone: GMT+8
+        show_sql: true
+        user_sql_comments: true
+    show-sql: false
+    open-in-view: false
   application:
     name: cloud-user
   jackson:

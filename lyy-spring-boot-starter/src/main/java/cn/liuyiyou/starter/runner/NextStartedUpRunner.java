@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.ConfigurableApplicationContext;
+//import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
@@ -24,8 +25,8 @@ public class NextStartedUpRunner implements ApplicationRunner {
     private final ConfigurableApplicationContext context;
 
 
-    @Autowired
-    RedisTemplate<String, Object> redisTemplate;
+//    @Autowired
+//    RedisTemplate<String, Object> redisTemplate;
 
     @Value("${server.port:8080}")
     private String port;
@@ -41,7 +42,7 @@ public class NextStartedUpRunner implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         try {
             // 测试 Redis连接是否正常
-            redisTemplate.hasKey("lyy");
+//            redisTemplate.hasKey("lyy");
         } catch (Exception e) {
             log.error(" ____   __    _   _ ");
             log.error("| |_   / /\\  | | | |");

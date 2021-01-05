@@ -1,4 +1,4 @@
-package cn.liuyiyou.starter.autoconfigure.runner;
+package cn.liuyiyou.starter;
 
 import cn.liuyiyou.starter.properties.RunnerProperties;
 import cn.liuyiyou.starter.properties.SwaggerProperties;
@@ -16,15 +16,16 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @EnableAspectJAutoProxy
 @ConditionalOnWebApplication
 @ComponentScan
+//启用SwaggerProperties配置功能，并加入到IOC容器中
 @EnableConfigurationProperties({SwaggerProperties.class, RunnerProperties.class})
-public class RunnerAutoConfiguration {
+public class CloudAutoConfiguration {
 
     @Autowired
     private RunnerProperties runnerProperties;
 
     @PostConstruct
     public void sys() {
-        log.info("加载next-autoconfigure成功:{}", runnerProperties.getName());
+        log.info("加载cloud-autoconfigure成功:{}", runnerProperties.getName());
     }
 
 }
