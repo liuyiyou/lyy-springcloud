@@ -22,7 +22,14 @@
   </properties>
 
   <modules>
-    <!--组件start-->
+    <!--统一的starter-->
+    <module>lyy-spring-boot-starter</module>
+    <!--业务组件 start-->
+    <module>cloud-parent</module>
+    <module>cloud-app</module>
+    <module>cloud-user</module>
+    <!--业务组件 end-->
+    <!--支撑组件start-->
     <!--Eureka注册中心-->
     <module>eureka</module>
     <!--Zuul网关-->
@@ -31,7 +38,7 @@
     <module>sleuth</module>
     <!--熔断器面板-->
     <module>hystrix-dashboard</module>
-    <!--组件start-->
+    <!--支撑组件end-->
 
 
     <!--服务Start-->
