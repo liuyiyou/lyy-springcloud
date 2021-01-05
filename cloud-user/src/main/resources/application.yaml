@@ -2,6 +2,8 @@ spring:
   jpa:
     properties:
       hibernate:
+        # xxx.getOne() 报错 org.hibernate.LazyInitializationException: could not initialize proxy
+        enable_lazy_load_no_trans: true
         database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
         format_sql: true
         jdbc:

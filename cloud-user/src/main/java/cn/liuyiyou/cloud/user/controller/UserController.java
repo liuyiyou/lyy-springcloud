@@ -1,5 +1,6 @@
 package cn.liuyiyou.cloud.user.controller;
 
+import cn.liuyiyou.cloud.user.UserService;
 import cn.liuyiyou.cloud.user.entity.User;
 import cn.liuyiyou.cloud.user.repository.UserRepository;
 import java.time.Instant;
@@ -30,6 +31,8 @@ public class UserController {
 
     private final UserRepository userRepository;
 
+    private final UserService userService;
+
     /**
      * { "name": "传入的时间格式为yyyy-MM-dd HH:mm:ss", "createTime": "2021-01-04 20:24:02", "updateTime": "2021-01-04 20:24:02", "registerTime": "2021-01-04 20:24:02" }
      *
@@ -38,13 +41,13 @@ public class UserController {
      */
     @PutMapping()
     public User add(@RequestBody User user) {
-//        User user = new User();
-//        user.setName("aa");
-//        user.setBirthDay(LocalDateTime.now());
-//        user.setCreateTime(Instant.now());
-//        user.setRegisterTime(new Date());
-//        user.setUpdateTime(Instant.now());
         return userRepository.save(user);
+    }
+
+
+    @GetMapping("/tx/{id}")
+    public User tx(@PathVariable Integer id) {
+        return userService.userTx(id);
     }
 
     @GetMapping("{id}")
