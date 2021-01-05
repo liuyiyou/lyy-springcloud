@@ -54,10 +54,18 @@ public class UserController {
     }
 
     @GetMapping("timeBetween")
-    public List<User> list() {
-        LocalDateTime startOfDay = LocalDateTime.of(LocalDate.now(), LocalTime.MAX);
+    public List<User> timeBetween() {
+        LocalDateTime startOfDay = LocalDateTime.of(LocalDate.now(), LocalTime.MIN);
         LocalDateTime endOfDay = LocalDateTime.of(LocalDate.now(), LocalTime.MAX);
         return userRepository.findByCreateTimeBetween(startOfDay.atZone(ZoneId.of("Asia/Shanghai")).toInstant(), endOfDay.atZone(ZoneId.of("Asia/Shanghai")).toInstant());
+    }
+
+
+    @GetMapping("timeBetween2")
+    public List<User> timeBetween2() {
+        LocalDateTime startOfDay = LocalDateTime.of(LocalDate.now(), LocalTime.MIN).minusHours(8);
+        final LocalDateTime endOfDay = LocalDateTime.of(LocalDate.now(), LocalTime.MAX).minusHours(8);
+        return userRepository.findByCreateTimeBetween(startOfDay.atZone(ZoneId.systemDefault()).toInstant(), endOfDay.atZone(ZoneId.systemDefault()).toInstant());
     }
 
 
