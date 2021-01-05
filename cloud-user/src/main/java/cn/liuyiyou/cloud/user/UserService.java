@@ -25,7 +25,7 @@ public class UserService {
      * @param id
      * @return
      */
-    @Transactional(propagation= Propagation.NOT_SUPPORTED)
+    @Transactional//(propagation= Propagation.NOT_SUPPORTED)
     public User userTx(Integer id) {
         User user = userRepository.findById(id).orElse(null);
         user.setName("bb");

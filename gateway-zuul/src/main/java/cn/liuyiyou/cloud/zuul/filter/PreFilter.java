@@ -26,7 +26,10 @@ public class PreFilter extends ZuulFilter {
 
   @Override
   public boolean shouldFilter() {
-    return true;
+    if (RequestContext.getCurrentContext().sendZuulResponse()) {
+      return true;
+    }
+    return false;
   }
 
   @Override
@@ -34,9 +37,10 @@ public class PreFilter extends ZuulFilter {
     //获取上下文
     final RequestContext currentContext = RequestContext.getCurrentContext();
     final HttpServletRequest request = currentContext.getRequest();
-
-
-    log.info("PreFilter");
+    if (request.getMethod().equals("GET")) {
+      //数据可以在这里进行换乘
+      log.info("PreFilter");
+    }
     return  null;
   }
 }
