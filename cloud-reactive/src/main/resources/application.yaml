@@ -1,17 +1,19 @@
-management:
-  endpoint:
-    health:
-      show-details: always
-  endpoints:
-    jmx:
-      exposure:
-        include: '*'
-    web:
-      exposure:
-        include: '*'
 spring:
+  jpa:
+    properties:
+      hibernate:
+        # xxx.getOne() 报错 org.hibernate.LazyInitializationException: could not initialize proxy
+        enable_lazy_load_no_trans: true
+        database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+        jdbc:
+          time_zone: GMT+8
+        show_sql: true
+        user_sql_comments: true
+    show-sql: false
+    open-in-view: false
   application:
-    name: cloud-app
+    name: cloud-reactive
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     locale: zh_CN
@@ -34,35 +36,26 @@ feign:
     enabled: true
 
 hystrix:
-  threadpool:
-    default:
-      # 解决办法是设置feign的核心线程池
-      coreSize: 100
   command:
     default:
       execution:
-        circuitBreaker:
-          requestVolumeThreshold: 500
         timeout:
           enabled: false
       isolation:
-        semaphore:
-          # #设置回退的最大线程数
-          maxConcurrentRequests: 50
         thread:
           #目前有两个容器实例，单个请求超时5s,+重试>10s，超15s则熔断
           timeoutInMilliseconds: 15000
 
 ribbon:
   #ribbon请求连接的超时时间- 限制3秒内必须请求到服务，并不限制服务处理的返回时间
-  ConnectTimeout: 3000
+  connectTimeout: 3000
   #请求处理的超时时间 下级服务响应最大时间,超出时间消费方（路由也是消费方）返回timeout,超时时间不可大于断路器的超时时间
-  ReadTimeout: 5000
+  readTimeout: 5000
 
-lyy:
-  config:
-    feign: false
 server:
-  port: 9000
-  servlet:
-    context-path:
+  port: 9200
+
+
+logging:
+  level:
+    org.hibernate.type.descriptor.sql.BasicBinder: trace

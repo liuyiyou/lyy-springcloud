@@ -4,8 +4,8 @@ import cn.liuyiyou.cloud.user.entity.User;
 import cn.liuyiyou.cloud.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -22,8 +22,6 @@ public class UserService {
 
     /**
      * 会更新一个值
-     * @param id
-     * @return
      */
     @Transactional//(propagation= Propagation.NOT_SUPPORTED)
     public User userTx(Integer id) {
@@ -31,7 +29,6 @@ public class UserService {
         user.setName("bb");
         return user;
     }
-
 
 
 }

@@ -56,7 +56,7 @@ public class NextStartedUpRunner implements ApplicationRunner {
             InetAddress address = InetAddress.getLocalHost();
             String url =
                 String.format("http://%s:%s", address.getHostAddress(), port) + (
-                    StringUtils.isNotEmpty(contextPath) ? contextPath : "") + "/swagger-ui.html";
+                    StringUtils.isNotEmpty(contextPath) ? contextPath : "") + "/swagger-ui/index.html";
             String os = System.getProperty("os.name");
             log.info(" __    ___   _      ___   _     ____ _____  ____ ");
             log.info("/ /`  / / \\ | |\\/| | |_) | |   | |_   | |  | |_  ");

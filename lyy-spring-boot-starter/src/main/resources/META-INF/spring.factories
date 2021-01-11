@@ -2,4 +2,5 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 cn.liuyiyou.starter.autoconfigure.log.LogAutoConfiguration,\
   cn.liuyiyou.starter.autoconfigure.feign.FeignAutoConfiguration,\
   cn.liuyiyou.starter.autoconfigure.runner.RunnerAutoConfiguration,\
+  cn.liuyiyou.starter.swagger.SwaggerAutoConfiguration,\
   cn.liuyiyou.starter.CloudAutoConfiguration
