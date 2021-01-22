@@ -9,3 +9,8 @@ spring:
 hystrix:
   metrics:
     enabled: true
+feign:
+  client:
+    config:
+      cloud-user:
+        connectTimeout: 1000

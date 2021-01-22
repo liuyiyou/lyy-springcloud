@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
  */
 @FeignClient(value = "cloud-user", path = "/users")
 public interface UserFeignClient {
-
     @GetMapping("/{id}")
     User findById(@PathVariable("id") Integer id);
 }

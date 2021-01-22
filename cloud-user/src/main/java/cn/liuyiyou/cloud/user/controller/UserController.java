@@ -51,8 +51,8 @@ public class UserController {
     }
 
     @GetMapping("{id}")
-    public User user(@PathVariable Integer id) {
-
+    public User user(@PathVariable Integer id) throws InterruptedException {
+        Thread.sleep(1200L);
         return userRepository.findById(id).orElse(null);
     }
 
