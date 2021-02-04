@@ -34,7 +34,6 @@ feign:
     enabled: true
   hystrix:
     enabled: true
-
 hystrix:
   command:
     default:
@@ -59,3 +58,6 @@ server:
 logging:
   level:
     org.hibernate.type.descriptor.sql.BasicBinder: trace
+lyy:
+  swagger:
+    base-package: cn.liuyiyou.cloud.user.controller
